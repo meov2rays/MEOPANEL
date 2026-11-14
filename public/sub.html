@@ -4,17 +4,20 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#000000">
+<script>try{var t=localStorage.getItem("meo-theme")||"dark";document.documentElement.dataset.theme=t}catch(e){document.documentElement.dataset.theme="dark"}</script>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Color+Emoji&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+
 <meta name="robots" content="noindex,nofollow">
-<title>MEOSUB</title>
+<title>MEOPANEL · SUB</title>
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='9' fill='%236c5ce7'/%3E%3Cpath d='M16 6l8 3v6c0 5-3.4 8.6-8 10-4.6-1.4-8-5-8-10V9z' fill='none' stroke='white' stroke-width='2' stroke-linejoin='round'/%3E%3C/svg%3E">
 <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;700;800&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcode-generator/1.4.4/qrcode.min.js" defer></script>
 <style>
-:root{color-scheme:dark;--sf:#0d0d14;--sf2:#16161f;--ln:#22222f;--tx:#f5f5fc;--mu:#8b8ba6;--ac:#8b7bff;--ac2:#5b3df0;--ok:#4de1c1;--wn:#ffb86b;--er:#ff6b8b;--g:linear-gradient(135deg,#8b7bff,#5b3df0)}
+:root{color-scheme:dark;--bgc:#000;--aside:#050508;--aside-a:#050508e6;--dlg:#09090f;--sf:#0d0d14;--sf2:#16161f;--ln:#22222f;--tx:#f5f5fc;--mu:#8b8ba6;--ac:#8b7bff;--ac2:#5b3df0;--ok:#4de1c1;--wn:#ffb86b;--er:#ff6b8b;--g:linear-gradient(135deg,#8b7bff,#5b3df0)}
 *{box-sizing:border-box;margin:0;-webkit-tap-highlight-color:transparent}
 [hidden]{display:none!important}
-html{background:#000}
-body{font-family:Vazirmatn,Tahoma,sans-serif;color:var(--tx);min-height:100vh;line-height:1.7;background:radial-gradient(600px 360px at 90% -6%,#6a5cff38,transparent),radial-gradient(500px 360px at -5% 105%,#4de1c11c,transparent),#000;background-attachment:fixed}
+html{background:var(--bgc)}
+body{font-family:Vazirmatn,Tahoma,sans-serif;color:var(--tx);min-height:100vh;line-height:1.7;background:radial-gradient(600px 360px at 90% -6%,#6a5cff38,transparent),radial-gradient(500px 360px at -5% 105%,#4de1c11c,transparent),var(--bgc);background-attachment:fixed}
 button{font:inherit;color:inherit}
 :focus-visible{outline:2px solid var(--ac);outline-offset:2px}
 .wrap{max-width:720px;margin:0 auto;padding:max(20px,env(safe-area-inset-top)) 16px calc(50px + env(safe-area-inset-bottom))}
@@ -58,7 +61,7 @@ h2{font-size:17px;font-weight:800;margin:28px 4px 4px}
 .row{display:flex;gap:6px}
 .qr{display:flex;justify-content:center;background:#fff;border-radius:16px;padding:14px;margin-top:12px}
 .qr svg{max-width:100%;height:auto}
-dialog{border:1px solid var(--ln);background:#09090f;color:var(--tx);border-radius:24px;padding:24px;width:min(360px,92vw);margin:auto;text-align:center}
+dialog{border:1px solid var(--ln);background:var(--dlg);color:var(--tx);border-radius:24px;padding:24px;width:min(360px,92vw);margin:auto;text-align:center}
 dialog::backdrop{background:#000b;backdrop-filter:blur(4px)}
 footer{text-align:center;color:var(--mu);font-size:12px;margin-top:34px}
 #toast{position:fixed;bottom:calc(24px + env(safe-area-inset-bottom));left:50%;transform:translateX(-50%) translateY(20px);background:var(--g);color:#fff;padding:10px 22px;border-radius:14px;font-weight:700;opacity:0;pointer-events:none;transition:.2s;z-index:99}
@@ -76,12 +79,58 @@ dialog[open]{animation:rise .25s both}
  .cfg{flex-wrap:wrap}.cfg .row{width:100%}.cfg .row .btn{flex:1;padding:11px}
  .lk{flex-wrap:wrap}.lk .mono{flex:1 1 100%}.lk .btn{flex:1;padding:11px}
 }
+
+html[data-theme=light]{color-scheme:light;--bgc:#f3f2fb;--aside:#fff;--aside-a:#ffffffe6;--dlg:#fff;--sf:#fff;--sf2:#efeefb;--ln:#e0def2;--tx:#17172e;--mu:#6b6b8d;--ac:#5b3df0;--ac2:#5b3df0;--ok:#0e9c76;--wn:#b8700f;--er:#d3305a}
+html[data-theme=light] .stat,html[data-theme=light] .card,html[data-theme=light] .box,html[data-theme=light] .app,html[data-theme=light] .cfg{box-shadow:0 10px 28px -16px #4a3fb04d}
+html[data-theme=light] dialog::backdrop{background:#2a2a4a66}
+#th{position:fixed;top:max(12px,env(safe-area-inset-top));left:12px;z-index:70;width:42px;height:42px;border-radius:14px;border:1px solid var(--ln);background:var(--sf);font-size:21px;line-height:1;cursor:pointer;display:grid;place-items:center;box-shadow:0 8px 22px -10px #0008;transition:transform .15s,border-color .15s}
+#th:hover{border-color:var(--ac)}#th:active{transform:scale(.92)}
+#th.spin{animation:spinin .5s cubic-bezier(.3,1.4,.5,1)}
+@keyframes spinin{from{transform:rotate(-200deg) scale(.5)}to{transform:none}}
+@keyframes float{0%,100%{transform:translateY(0) rotate(-3deg)}50%{transform:translateY(-10px) rotate(3deg)}}
+@keyframes hue{0%,100%{background-position:0% 50%}50%{background-position:100% 50%}}
+@keyframes pulse{0%{box-shadow:0 0 0 0 #4de1c1aa}70%,100%{box-shadow:0 0 0 9px transparent}}
+@keyframes drift{to{transform:translate(50px,-40px) scale(1.2)}}
+@keyframes rise-up{0%{transform:translateY(0) rotate(0);opacity:0}12%{opacity:.4}88%{opacity:.4}100%{transform:translateY(-115vh) rotate(28deg);opacity:0}}
+@keyframes ring{0%{transform:scale(.92);opacity:.55}100%{transform:scale(1.3);opacity:0}}
+@keyframes grow{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+@keyframes pop{from{opacity:0;transform:translateY(14px) scale(.94)}to{opacity:1;transform:none}}
+.hero{background-size:220% 220%;animation:hue 12s ease infinite}
+.hero .deco{position:absolute;left:18px;bottom:6px;font-size:84px;line-height:1;opacity:.3;animation:float 6s ease-in-out infinite;pointer-events:none}
+.btn.pri{position:relative;overflow:hidden}
+.btn.pri::after{content:"";position:absolute;inset:0;background:linear-gradient(110deg,transparent 30%,#ffffff55 50%,transparent 70%);transform:translateX(130%);transition:transform .7s}
+.btn.pri:hover::after{transform:translateX(-130%)}
+.pill.ok::before{animation:pulse 2s infinite}
+.meter i{transform-origin:right;animation:grow 1s cubic-bezier(.2,.8,.2,1) both .15s}
+.aur{position:absolute;border-radius:50%;filter:blur(72px);animation:drift 16s ease-in-out infinite alternate;pointer-events:none}
+.a1{width:420px;height:420px;background:#6a5cff;opacity:.4;top:-110px;right:-90px}
+.a2{width:340px;height:340px;background:#4de1c1;opacity:.18;bottom:-100px;left:-70px;animation-delay:-6s}
+.fl-emo{position:absolute;inset:0;overflow:hidden;pointer-events:none}
+.fl-emo span{position:absolute;bottom:-70px;left:var(--x);font-size:var(--s,30px);opacity:0;animation:rise-up var(--d,16s) linear infinite;animation-delay:var(--w,0s)}
+.ne{font-size:21px;line-height:1;display:inline-block;transition:transform .25s cubic-bezier(.3,1.6,.5,1);flex:none}
+nav button:hover .ne,nav button.on .ne{transform:scale(1.2) rotate(-8deg)}
+.pt{font-size:24px}.pt .ne{font-size:24px}
+.emj{font-size:22px}.lgmark{font-size:50px;position:relative;overflow:visible}
+.lgmark::after{content:"";position:absolute;inset:-6px;border-radius:32px;border:2px solid var(--ac);animation:ring 3s ease-out infinite}
+.lgmark{animation:float 4.5s ease-in-out infinite}
+.stat .bub{font-size:25px}
+.big{font-size:56px;display:block;line-height:1.3;animation:float 4s ease-in-out infinite}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:6px}
+.bgfx{position:fixed;inset:0;overflow:hidden;pointer-events:none;z-index:0}
+.wrap{position:relative;z-index:1}
+.app .lg{font-size:24px;background:var(--g);transition:transform .25s cubic-bezier(.3,1.6,.5,1)}.app:hover .lg{transform:scale(1.15) rotate(-6deg)}
+.stats small{font-size:12px}.stats div{transition:transform .2s}.stats div:hover{transform:translateY(-3px)}
+.cfg{transition:transform .2s,border-color .2s}.cfg:hover{transform:translateX(-4px);border-color:var(--ac)}
+.app::after{content:"";position:absolute;inset:0;background:linear-gradient(110deg,transparent 30%,#8b7bff38 50%,transparent 70%);transform:translateX(130%);transition:transform .7s}.app{position:relative;overflow:hidden}.app:hover::after{transform:translateX(-130%)}
+.ring{position:relative}
 @media(prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
 </style>
 </head>
 <body>
+<button id="th" aria-label="تغییر حالت شب و روز" onclick="toggleTheme()"></button>
+<div class="bgfx" aria-hidden="true"><div class="aur a1"></div><div class="aur a2"></div><div class="fl-emo" id="fe"></div></div>
 <div class="wrap" id="app"></div>
-<dialog id="qd"><h3 id="qt" style="margin-bottom:4px"></h3><div id="qb"></div><button class="btn" style="margin-top:16px;width:100%;padding:12px" onclick="qd.close()">بستن</button></dialog>
+<dialog id="qd"><h3 id="qt" style="margin-bottom:4px"></h3><div id="qb"></div><button class="btn" style="margin-top:16px;width:100%;padding:12px" onclick="qd.close()">✖️ بستن</button></dialog>
 <div id="toast"></div>
 <script>
 const D=__DATA__;
@@ -91,37 +140,41 @@ const fmt=b=>{b=+b||0;const u=['بایت','کیلوبایت','مگابایت','�
 const toast=t=>{const e=$('#toast');e.textContent=t;e.classList.add('on');setTimeout(()=>e.classList.remove('on'),1700)};
 const copy=t=>{(navigator.clipboard?navigator.clipboard.writeText(t):Promise.reject()).catch(()=>{const a=document.createElement('textarea');a.value=t;document.body.appendChild(a);a.select();document.execCommand('copy');a.remove()}).finally(()=>toast('کپی شد'))};
 const LOGO_IMAGE='';
+function applyTheme(t){document.documentElement.dataset.theme=t;const b=document.getElementById('th');if(b)b.textContent=t==='light'?'🌙':'☀️';const m=document.querySelector('meta[name=theme-color]');if(m)m.content=t==='light'?'#f3f2fb':'#000000';try{localStorage.setItem('meo-theme',t)}catch(e){}}
+function toggleTheme(){const b=document.getElementById('th');b.classList.remove('spin');void b.offsetWidth;b.classList.add('spin');applyTheme(document.documentElement.dataset.theme==='light'?'dark':'light')}
+applyTheme(document.documentElement.dataset.theme||'dark');
+(function(){const fe=document.getElementById('fe');['🛡️','🚀','⚡','🌐','🔒','✨','🛰️','💫'].forEach((e,i)=>{const x=document.createElement('span');x.textContent=e;x.style.cssText=`--x:${i*12+Math.random()*8}%;--s:${22+Math.random()*18}px;--d:${16+Math.random()*10}s;--w:-${Math.random()*16}s`;fe.appendChild(x)})})();
 const GLYPH='<svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v5.2c0 4.4-3 8-7 9.3-4-1.3-7-4.9-7-9.3V6z"/><path d="M8.7 13.4V9.8l3.3 2.8 3.3-2.8v3.6"/></svg>';
-const CAT=`<span class="emj">${LOGO_IMAGE?`<img src="${LOGO_IMAGE}" alt="">`:GLYPH}</span>`;
+const CAT=`<span class="emj">${LOGO_IMAGE?`<img src="${LOGO_IMAGE}" alt="">`:'🛡️'}</span>`;
 const S={active:['فعال',0],disabled:['غیرفعال',1],expired:['منقضی شده',1],limit:['حجم تمام شده',1]}[D.status];
 const unl=!D.total,pc=unl?0:Math.min(100,D.used/D.total*100),left=unl?null:Math.max(0,D.total-D.used);
 const days=D.expireAt?Math.ceil((D.expireAt-Date.now())/864e5):null;
 const proto=l=>l.split('://')[0].toUpperCase();
 const sub=D.sub,enc=encodeURIComponent;
-const APPS=[['v2rayNG','اندروید','V','#3b82f6,#6366f1',`v2rayng://install-sub?url=${enc(sub)}&name=MEOPANEL`],
-['Hiddify','اندروید · iOS · ویندوز','H','#8b5cf6,#d946ef',`hiddify://import/${sub}#MEOPANEL`],
-['Streisand','iOS','S','#06b6d4,#3b82f6',`streisand://import/${sub}`],
-['Shadowrocket','iOS','R','#f59e0b,#ef4444',`sub://${btoa(sub)}`],
-['sing-box','همه‌ی سیستم‌ها','B','#10b981,#14b8a6',`sing-box://import-remote-profile?url=${enc(sub)}#MEOPANEL`]];
+const APPS=[['v2rayNG','اندروید','🛰️','#3b82f6,#6366f1',`v2rayng://install-sub?url=${enc(sub)}&name=MEOPANEL`],
+['Hiddify','اندروید · iOS · ویندوز','🦋','#8b5cf6,#d946ef',`hiddify://import/${sub}#MEOPANEL`],
+['Streisand','iOS','🎤','#06b6d4,#3b82f6',`streisand://import/${sub}`],
+['Shadowrocket','iOS','🚀','#f59e0b,#ef4444',`sub://${btoa(sub)}`],
+['sing-box','همه‌ی سیستم‌ها','📦','#10b981,#14b8a6',`sing-box://import-remote-profile?url=${enc(sub)}#MEOPANEL`]];
 $('#app').innerHTML=`
 <div class="top">${CAT}<b>MEOPANEL</b></div>
-<section class="hero"><div class="hero-in">
- <div class="who"><small>اشتراک اختصاصی</small><h1>${esc(D.name)}</h1><span class="badge ${S[1]?'bad':''}">${S[0]}</span></div>
+<section class="hero"><span class="deco">🌍</span><div class="hero-in">
+ <div class="who"><small>✨ اشتراک اختصاصی</small><h1>${esc(D.name)}</h1><span class="badge ${S[1]?'bad':''}">${S[0]}</span></div>
  <div class="ring" id="rg" style="--p:0" data-p="${pc}"><i><div>${unl?'<b>∞</b><span>حجم نامحدود</span>':`<b>${fa(Math.round(pc))}٪</b><span>مصرف‌شده</span>`}</div></i></div>
 </div>
 <div class="stats">
- <div><small>مصرف</small><b>${fmt(D.used)}</b></div>
- <div><small>باقی‌مانده</small><b>${unl?'نامحدود':fmt(left)}</b></div>
- <div><small>مدت باقی‌مانده</small><b>${days===null?'نامحدود':days>0?fa(days)+' روز':'تمام شده'}</b></div>
- <div><small>تاریخ انقضا</small><b>${D.expireAt?new Date(D.expireAt).toLocaleDateString('fa-IR'):'—'}</b></div>
+ <div><small>📊 مصرف</small><b>${fmt(D.used)}</b></div>
+ <div><small>🎯 باقی‌مانده</small><b>${unl?'نامحدود':fmt(left)}</b></div>
+ <div><small>⏳ مدت باقی‌مانده</small><b>${days===null?'نامحدود':days>0?fa(days)+' روز':'تمام شده'}</b></div>
+ <div><small>📅 تاریخ انقضا</small><b>${D.expireAt?new Date(D.expireAt).toLocaleDateString('fa-IR'):'—'}</b></div>
 </div></section>
-${S[1]?`<div class="alert">${{disabled:'این اشتراک توسط مدیر غیرفعال شده است.',expired:'مدت این اشتراک تمام شده است؛ برای تمدید با مدیر تماس بگیرید.',limit:'حجم این اشتراک تمام شده است؛ برای افزایش حجم با مدیر تماس بگیرید.'}[D.status]}</div>`:''}
-<h2>اتصال سریع</h2><p class="hint">برنامه‌ی خود را انتخاب کنید تا اشتراک خودکار اضافه شود.</p>
+${S[1]?`<div class="alert">⚠️ ${{disabled:'این اشتراک توسط مدیر غیرفعال شده است.',expired:'مدت این اشتراک تمام شده است؛ برای تمدید با مدیر تماس بگیرید.',limit:'حجم این اشتراک تمام شده است؛ برای افزایش حجم با مدیر تماس بگیرید.'}[D.status]}</div>`:''}
+<h2>⚡ اتصال سریع</h2><p class="hint">برنامه‌ی خود را انتخاب کنید تا اشتراک خودکار اضافه شود.</p>
 <div class="apps">${APPS.map(a=>`<a class="app" href="${esc(a[4])}"><span class="lg" style="--g:linear-gradient(135deg,${a[3]})">${a[2]}</span><span><b>${a[0]}</b><small>${a[1]}</small></span></a>`).join('')}</div>
-<h2>لینک اشتراک</h2><p class="hint">اگر برنامه‌تان در بالا نبود، این لینک را در بخش افزودن اشتراک (Subscription) آن بچسبانید.</p>
-<div class="card"><div class="lk"><span class="mono">${esc(sub)}</span><button class="btn pri" onclick="copy(D.sub)">کپی</button><button class="btn" onclick="showQR(D.sub,'QR لینک اشتراک')">QR</button></div></div>
-${D.links.length?`<h2>کانفیگ‌های تکی</h2><p class="hint">برای وارد کردن دستی یک کانفیگ مشخص.</p>${D.links.map((l,i)=>`<div class="cfg"><div class="n"><b>${esc(l.name)}<span class="tag">${proto(l.link)}</span></b><small>${l.core==='xray'?'Xray-core':'sing-box'} · WebSocket · TLS</small></div><div class="row"><button class="btn pri" onclick="copy(D.links[${i}].link)">کپی</button><button class="btn" onclick="showQR(D.links[${i}].link,D.links[${i}].name)">QR</button></div></div>`).join('')}`:''}
-<footer>ارائه‌شده با MEOPANEL</footer>`;
+<h2>🔗 لینک اشتراک</h2><p class="hint">اگر برنامه‌تان در بالا نبود، این لینک را در بخش افزودن اشتراک (Subscription) آن بچسبانید.</p>
+<div class="card"><div class="lk"><span class="mono">${esc(sub)}</span><button class="btn pri" onclick="copy(D.sub)">📋 کپی</button><button class="btn" onclick="showQR(D.sub,'QR لینک اشتراک')">📱 QR</button></div></div>
+${D.links.length?`<h2>🧩 کانفیگ‌های تکی</h2><p class="hint">برای وارد کردن دستی یک کانفیگ مشخص.</p>${D.links.map((l,i)=>`<div class="cfg"><div class="n"><b>${esc(l.name)}<span class="tag">${proto(l.link)}</span></b><small>${l.core==='xray'?'Xray-core':'sing-box'} · WebSocket · TLS</small></div><div class="row"><button class="btn pri" onclick="copy(D.links[${i}].link)">📋 کپی</button><button class="btn" onclick="showQR(D.links[${i}].link,D.links[${i}].name)">📱 QR</button></div></div>`).join('')}`:''}
+<footer>ارائه‌شده با MEOPANEL 💜</footer>`;
 (function(){let i=0;document.querySelectorAll('.top,.hero,.alert,#app>h2,#app>.hint,.apps>*,#app>.card,.cfg,footer').forEach(e=>{e.style.setProperty('--i',Math.min(i++,10));e.classList.add('rise')});
  const r=$('#rg');if(r)requestAnimationFrame(()=>requestAnimationFrame(()=>r.style.setProperty('--p',r.dataset.p)))})();
 const qd=$('#qd');
