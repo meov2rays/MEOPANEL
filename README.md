@@ -217,7 +217,7 @@ meopanel/
 
 ## لینک‌ها
 
-**GitHub:** [github.com/shaghayeghds/MEOPANEL](https://github.com/meov2rays/MEOPANEL)
+**GitHub:** [github.com/meov2rays/MEOPANEL](https://github.com/meov2rays/MEOPANEL)
 
 **سازنده:** [@arshannaebi](https://t.me/meov2ray) · **کانال:** [@meov2ray](https://t.me/meov2ray)
 
