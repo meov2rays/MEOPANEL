@@ -217,10 +217,10 @@ meopanel/
 
 ## لینک‌ها
 
-**GitHub:** [github.com/shaghayeghds/MEOPANEL](https://github.com/shaghayeghds/MEOPANEL)
+**GitHub:** [github.com/shaghayeghds/MEOPANEL](https://github.com/meov2rays/MEOPANEL)
 
-**سازنده:** [@YOUR_ID](https://t.me/YOUR_ID) · **کانال:** [@YOUR_CHANNEL](https://t.me/YOUR_CHANNEL)
+**سازنده:** [@arshannaebi](https://t.me/meov2ray) · **کانال:** [@meov2ray](https://t.me/meov2ray)
 
-<p align="center"><b>MEOPANEL</b> · created by @YOUR_ID</p>
+<p align="center"><b>MEOPANEL</b> · created by MEOV2RAY</p>
 
 </div>
