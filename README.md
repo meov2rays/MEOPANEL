@@ -2,6 +2,13 @@
   <img src="docs/banner.png" alt="MEOPANEL" width="100%">
 </p>
 
+<h1 align="center">
+  <a href="https://t.me/meov2ray">
+    <img src="https://img.shields.io/badge/TELEGRAM_CHANNEL-CLICK_TO_JOIN-9333EA?style=for-the-badge&logo=telegram&logoColor=white&labelColor=090014" height="65"/>
+  </a>
+</h1>
+
+
 <p align="center">
   <img src="https://img.shields.io/badge/Xray--core-supported-7c6cff?style=for-the-badge" alt="Xray-core">
   <img src="https://img.shields.io/badge/sing--box-supported-2fd8c0?style=for-the-badge" alt="sing-box">
